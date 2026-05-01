@@ -1,4 +1,4 @@
-import { Activity, BarChart3, Settings, TrendingUp, Search, BookOpen } from 'lucide-react';
+import { Activity, BarChart3, Settings, TrendingUp, Search, BookOpen, HelpCircle, Bot } from 'lucide-react';
 import { useElectionData } from '../context/ElectionContext';
 import clsx from 'clsx';
 
@@ -11,6 +11,8 @@ export default function Sidebar() {
     { id: 'analyzer', icon: Search, label: 'Exit Poll Analyzer' },
     { id: 'historical', icon: BarChart3, label: 'Historical Trends' },
     { id: 'state-history', icon: BookOpen, label: 'State History (Edu)' },
+    { id: 'assistant', icon: HelpCircle, label: 'Democracy Guide' },
+    { id: 'ai-assistant', icon: Bot, label: 'AI Advisor' },
   ];
 
   return (

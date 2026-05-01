@@ -1,13 +1,13 @@
 import { useElectionData } from '../context/ElectionContext';
-import { regions } from '../data/mockData';
 import { Sliders, RefreshCw } from 'lucide-react';
 
 export default function Simulator() {
-  const { simulationState, updateSimulation, updateRegionSwing, projectedResults } = useElectionData();
+  const { regions, simulationState, updateSimulation, updateRegionSwing, projectedResults, resetSimulation } = useElectionData();
 
   const handleReset = () => {
-    updateSimulation('nationalSwing', 0);
-    regions.forEach(r => updateRegionSwing(r.id, 0));
+    if (window.confirm('Are you sure you want to reset all simulation parameters?')) {
+      resetSimulation();
+    }
   };
 
   return (
@@ -46,6 +46,8 @@ export default function Simulator() {
               step="0.5"
               value={simulationState.nationalSwing}
               onChange={(e) => updateSimulation('nationalSwing', parseFloat(e.target.value))}
+              aria-label="National Vote Swing"
+              id="national-swing-input"
               className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
             />
             <div className="flex justify-between text-xs text-slate-400 mt-2">
@@ -77,6 +79,7 @@ export default function Simulator() {
               step="1"
               value={simulationState.regionSwings[region.id] || 0}
               onChange={(e) => updateRegionSwing(region.id, parseFloat(e.target.value))}
+              aria-label={`Swing for ${region.name}`}
               className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-600 dark:accent-slate-400"
             />
           </div>

@@ -5,6 +5,8 @@ import Simulator from './components/Simulator';
 import Analyzer from './components/Analyzer';
 import Historical from './components/Historical';
 import StateHistory from './components/StateHistory';
+import CivicAssistant from './components/CivicAssistant';
+import AIAssistant from './components/AIAssistant';
 
 function MainContent() {
   const { activeTab } = useElectionData();
@@ -17,6 +19,8 @@ function MainContent() {
         {activeTab === 'analyzer' && <Analyzer />}
         {activeTab === 'historical' && <Historical />}
         {activeTab === 'state-history' && <StateHistory />}
+        {activeTab === 'assistant' && <CivicAssistant />}
+        {activeTab === 'ai-assistant' && <AIAssistant />}
       </div>
     </main>
   );
