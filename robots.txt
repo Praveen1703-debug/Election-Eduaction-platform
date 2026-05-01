@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://praveen1703-debug.github.io/Election-Eduaction-platform/sitemap.xml
