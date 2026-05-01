@@ -25,12 +25,14 @@ export default function Dashboard() {
         <p className="text-slate-500 mt-2">Real-time projection based on current simulation parameters for the 543 Lok Sabha seats.</p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="list">
         {data.map((party) => (
           <div 
             key={party.id} 
             className="glass-panel p-6 relative overflow-hidden group cursor-pointer"
             onClick={() => setSelectedPartyInfo(educationalInfo[party.id])}
+            role="listitem"
+            aria-label={`Seat projection for ${party.name}`}
           >
             <div className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-10 transition-transform group-hover:scale-110`} style={{ backgroundColor: party.color }}></div>
             <div className="flex justify-between items-start">
